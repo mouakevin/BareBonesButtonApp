@@ -42,18 +42,21 @@ docker run --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=mydata
 
 
 Start the Node.js container and link it to the MySQL container
+
 docker run --name my-node-app --link mysql:mysql -p 3000:3000 -d my-node-app
 
 
 Access the application
+
 Open your browser and navigate to http://localhost:3000. You should see a button that increments the value, and the updated value is stored in the MySQL database.
 
 
 View the value in the database
+
 To see the value in the database, connect to the MySQL container and query the counter table:
 
-
 docker exec -it mysql mysql -uroot -ppassword mydatabase
+
 In the MySQL shell, run the following SQL query:
 
 sql
